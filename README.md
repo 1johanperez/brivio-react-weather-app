@@ -1,6 +1,6 @@
-# brivio-react-weather-app
+# brivo-react-weather-app
 
-Brivio's front-end coding challenge!
+Brivo's front-end coding challenge!
 
 Frontend Engineer Coding Assignment Task: Create a weather app in React using the OpenWeatherMap API.
 Objective: The objective of the assignment is to display a solid understanding of the following concepts:
