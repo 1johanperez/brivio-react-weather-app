@@ -1,5 +1,6 @@
-import LoginPage from './Login';
-import SummaryPage from './Summary';
-import DetailedPage from './Detailed';
+import LoginPage from './LoginPage';
+import HomePage from './HomePage';
+import DetailedPage from './DetailedPage';
+import ErrorPage from './ErrorPage';
 
-export { LoginPage, SummaryPage, DetailedPage };
+export { LoginPage, HomePage, DetailedPage, ErrorPage };

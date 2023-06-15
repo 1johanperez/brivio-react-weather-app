@@ -19,7 +19,7 @@ const NavbarComponent = () => {
 					</Typography>
 					<div style={{ margin: 30 }} />
 					<Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-						<Button color='inherit' onClick={() => navigate('/summary')}>
+						<Button color='inherit' onClick={() => navigate('/home')}>
 							Home
 						</Button>
 					</Typography>
