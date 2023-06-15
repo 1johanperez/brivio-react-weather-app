@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, Grid } from '@mui/material';
+import { Card, CardActions, CardContent, Button, Typography, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const WeatherCardComponent = ({ city, index, removeCity }) => {
 	const navigate = useNavigate();
+
 	return (
 		<Grid key={index} item>
 			<Card sx={{ maxWidth: 345 }}>
-				<CardMedia sx={{ height: 40 }} image='/static/images/cards/contemplative-reptile.jpg' title='green iguana' />
 				<CardContent>
 					<Typography gutterBottom variant='h6' component='div'>
 						{city.name}
@@ -16,32 +16,34 @@ const WeatherCardComponent = ({ city, index, removeCity }) => {
 						{city.daily[0].summary}
 					</Typography>
 					<Typography variant='body2' color='text.secondary'>
-						Current: {city.current.temp}
+						Current: {Math.round(city.current.temp)} F
 					</Typography>
 					<Typography variant='body2' color='text.secondary'>
-						Hi:{city.daily[0].temp.max}
+						Hi:{Math.round(city.daily[0].temp.max)} F
 					</Typography>
 					<Typography variant='body2' color='text.secondary'>
-						Low:{city.daily[0].temp.min}
+						Low:{Math.round(city.daily[0].temp.min)} F
 					</Typography>
 					<Typography variant='body2' color='text.secondary'>
-						Overcast:{city.current.weather[0].description}
+						Overcast: {city.current.weather[0].description}
 					</Typography>
 				</CardContent>
 				<CardActions>
-					<Button
-						size='small'
-						onClick={() =>
-							navigate(`/:${city.name}`, {
-								state: { daily: city.daily, name: city.name, coordinates: { lat: city.lat, lon: city.lon } },
-							})
-						}
-					>
-						5-Day Outlook
-					</Button>
-					<Button size='small' onClick={() => removeCity(city.lat, city.lon)}>
-						Remove City
-					</Button>
+					<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+						<Button
+							size='small'
+							onClick={() =>
+								navigate(`/home/:${city.name}`, {
+									state: { data: city.daily, name: city.name },
+								})
+							}
+						>
+							5-Day Outlook
+						</Button>
+						<Button size='small' onClick={() => removeCity(city.lat, city.lon)}>
+							Remove City
+						</Button>
+					</div>
 				</CardActions>
 			</Card>
 		</Grid>

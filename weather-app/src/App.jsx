@@ -9,9 +9,9 @@ function App() {
 			<NavbarComponent />
 			<div className='container'>
 				<Routes>
-					<Route path='/' element={<LoginPage />} />
+					<Route exact path='/' element={<LoginPage />} />
 					<Route path='/home' element={<HomePage />} />
-					<Route path='/:city' element={<DetailedPage />} />
+					<Route path='/home/:city' element={<DetailedPage />} />
 					<Route path='*' element={<ErrorPage />} />
 				</Routes>
 			</div>

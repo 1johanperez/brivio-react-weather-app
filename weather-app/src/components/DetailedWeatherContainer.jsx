@@ -6,17 +6,13 @@ import { useNavigate } from 'react-router-dom';
 const WeatherContainerComponent = ({ data }) => {
 	const navigate = useNavigate();
 
-	const days = data;
-
-	console.log('weekdata', days);
-
 	const columnTitles = ['Hi', 'Low', 'Overcast'];
 
-	const rows = days.map((day) => {
-		return { day: day.dt, hi: day.temp.max, low: day.temp.min, overcast: day.weather[0].description };
-	});
-
-	console.log('ROWS', rows);
+	const rows = data
+		.map((day) => {
+			return { day: day.dt, hi: day.temp.max, low: day.temp.min, overcast: day.weather[0].description };
+		})
+		.slice(0, 5);
 
 	return (
 		<>
@@ -27,11 +23,11 @@ const WeatherContainerComponent = ({ data }) => {
 				direction='row'
 				justifyContent='space-evenly'
 				alignItems='center'
-				style={{ backgroundColor: 'yellow', height: 400 }}
+				style={{ backgroundColor: 'white', height: 400 }}
 			>
-				<Graph test={days} />
+				<Graph data={data} />
 				<BasicTable rows={rows} columnTitles={columnTitles} />
-				<Button size='small' onClick={() => navigate(-1)}>
+				<Button size='small' onClick={() => navigate(-1, { state: { data } })}>
 					Back
 				</Button>
 			</Grid>

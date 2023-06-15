@@ -1,12 +1,13 @@
 import { WeatherContainerComponent } from '../components';
 import { useState } from 'react';
-import FormComponent from '../components/FormComponent';
+import { Form } from '../components';
 
 const HomePage = () => {
 	const [cities, setCities] = useState([]);
 
 	const addCity = (newCity) => {
-		setCities([...cities, newCity]);
+		if (cities.some((city) => city.lat === newCity.lat && city.lon == newCity.lon)) return;
+		setCities((cities) => [...cities, newCity]);
 	};
 
 	const removeCity = (lat, lon) => {
@@ -16,7 +17,8 @@ const HomePage = () => {
 	return (
 		<>
 			<h1>{cities.length ? `Your Weather At A Glance!` : `No Cities Saved, Add One Below!`}</h1>
-			<FormComponent cities={cities} addCity={addCity} />
+			<Form cities={cities} addCity={addCity} />
+			<div style={{ marginTop: 20 }} />
 			{cities.length && <WeatherContainerComponent cities={cities} removeCity={removeCity} />}
 		</>
 	);

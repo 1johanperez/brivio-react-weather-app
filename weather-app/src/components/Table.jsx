@@ -19,10 +19,10 @@ const BasicTable = ({ rows, columnTitles }) => {
 					{rows.map((row, index) => (
 						<TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
 							<TableCell component='th' scope='row'>
-								{row.day}
+								{new Date(row.day * 1000).getDay()}
 							</TableCell>
-							<TableCell align='right'>{row.hi}</TableCell>
-							<TableCell align='right'>{row.low}</TableCell>
+							<TableCell align='right'>{Math.round(row.hi)} F </TableCell>
+							<TableCell align='right'>{Math.round(row.low)} F</TableCell>
 							<TableCell align='right'>{row.overcast}</TableCell>
 						</TableRow>
 					))}

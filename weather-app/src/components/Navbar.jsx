@@ -1,13 +1,13 @@
 // import * as React from 'react';
 import { AppBar, Box, Toolbar, IconButton, Typography, Button } from '@mui/material/';
 import MenuIcon from '@mui/icons-material/Menu';
-// const pages = ['login', 'summary', 'detailed'];
+
 import { useNavigate } from 'react-router-dom';
 const NavbarComponent = () => {
 	const navigate = useNavigate();
 	return (
 		<Box sx={{ flexGrow: 1 }}>
-			<AppBar position='static'>
+			<AppBar position='static' style={{ backgroundColor: '#26a7de' }}>
 				<Toolbar>
 					<IconButton size='large' edge='start' color='inherit' aria-label='menu' sx={{ mr: 2 }}>
 						<MenuIcon />

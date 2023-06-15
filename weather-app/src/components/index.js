@@ -2,7 +2,7 @@ import NavbarComponent from './Navbar.jsx';
 import WeatherCardComponent from './WeatherCard.jsx';
 import WeatherContainerComponent from './WeatherContainer.jsx';
 import DetailedWeatherContainerComponent from './DetailedWeatherContainer.jsx';
-import FormComponent from './FormComponent.jsx';
+import Form from './Form.jsx';
 import Graph from './Graph.jsx';
 import Table from './Table.jsx';
 
@@ -11,7 +11,7 @@ export {
 	WeatherCardComponent,
 	WeatherContainerComponent,
 	DetailedWeatherContainerComponent,
-	FormComponent,
+	Form,
 	Graph,
 	Table,
 };

@@ -1,5 +1,3 @@
-import { Button } from '@mui/material';
-
-const LoginPage = () => <Button>LOGIN PAGE</Button>;
+const LoginPage = () => <h1>Log In!</h1>;
 
 export default LoginPage;
