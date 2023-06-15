@@ -4,6 +4,12 @@ import { Form } from '../components';
 
 const HomePage = () => {
 	const [cities, setCities] = useState([]);
+	// console.log('CITIES', cities);
+	// console.log('localstorage', localStorage);
+
+	// useEffect(() => {
+	// 	console.log('saved', JSON.parse(localStorage.getItem('cities')));
+	// }, [cities]);
 
 	const addCity = (newCity) => {
 		if (cities.some((city) => city.lat === newCity.lat && city.lon == newCity.lon)) return;

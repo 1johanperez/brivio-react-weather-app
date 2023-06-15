@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
 import BasicTable from './Table';
 import Graph from './Graph';
-import { Grid, Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 const WeatherContainerComponent = ({ data }) => {
-	const navigate = useNavigate();
-
 	const columnTitles = ['Hi', 'Low', 'Overcast'];
 
 	const rows = data
@@ -13,7 +11,7 @@ const WeatherContainerComponent = ({ data }) => {
 			return { day: day.dt, hi: day.temp.max, low: day.temp.min, overcast: day.weather[0].description };
 		})
 		.slice(0, 5);
-
+	console.log('DATA IN DETAILED', data);
 	return (
 		<>
 			<Grid
@@ -27,9 +25,12 @@ const WeatherContainerComponent = ({ data }) => {
 			>
 				<Graph data={data} />
 				<BasicTable rows={rows} columnTitles={columnTitles} />
-				<Button size='small' onClick={() => navigate(-1, { state: { data } })}>
+				<Link to={`/home`} onClick={() => localStorage.setItem('cities', { data })}>
 					Back
-				</Button>
+				</Link>
+				{/* <Button size='small' onClick={() => navigate(-1, { state: { data } })}>
+					Back
+				</Button> */}
 			</Grid>
 		</>
 	);

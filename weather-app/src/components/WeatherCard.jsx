@@ -1,10 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Card, CardActions, CardContent, Button, Typography, Grid } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const WeatherCardComponent = ({ city, index, removeCity }) => {
-	const navigate = useNavigate();
-
 	return (
 		<Grid key={index} item>
 			<Card sx={{ maxWidth: 345 }}>
@@ -30,16 +28,18 @@ const WeatherCardComponent = ({ city, index, removeCity }) => {
 				</CardContent>
 				<CardActions>
 					<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-						<Button
+						<Link to={`/home/:${city.name}`} state={{ data: city.daily }}>
+							{/* <Button
 							size='small'
 							onClick={() =>
 								navigate(`/home/:${city.name}`, {
 									state: { data: city.daily, name: city.name },
 								})
 							}
-						>
+						> */}
 							5-Day Outlook
-						</Button>
+							{/* </Button> */}
+						</Link>
 						<Button size='small' onClick={() => removeCity(city.lat, city.lon)}>
 							Remove City
 						</Button>

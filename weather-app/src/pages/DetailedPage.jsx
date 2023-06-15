@@ -4,6 +4,7 @@ import { DetailedWeatherContainerComponent } from '../components';
 
 const DetailedPage = () => {
 	const location = useLocation();
+	console.log('LOCATIONSTATE', location.state);
 	const { data, name } = location.state;
 	return (
 		<>
